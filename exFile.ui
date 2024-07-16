@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>ExFiles</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(27, 72, 127);
@@ -32,7 +32,7 @@ alternate-background-color: rgb(108, 179, 255);</string>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
-      <string>FIle View</string>
+      <string>File View</string>
      </attribute>
      <widget class="QWidget" name="verticalLayoutWidget_5">
       <property name="geometry">
@@ -193,7 +193,7 @@ alternate-background-color: rgb(108, 179, 255);</string>
        <item>
         <widget class="QRadioButton" name="extFilterButton_2">
          <property name="text">
-          <string>Extention</string>
+          <string>Extension</string>
          </property>
         </widget>
        </item>
@@ -442,7 +442,7 @@ alternate-background-color: rgb(108, 179, 255);</string>
        <item>
         <widget class="QRadioButton" name="extFilterButton">
          <property name="text">
-          <string>Extention</string>
+          <string>Extension</string>
          </property>
         </widget>
        </item>
