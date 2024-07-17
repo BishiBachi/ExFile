@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>ExFiles</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(27, 72, 127);
@@ -32,7 +32,7 @@ alternate-background-color: rgb(108, 179, 255);</string>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
-      <string>FIle View</string>
+      <string>File View</string>
      </attribute>
      <widget class="QWidget" name="verticalLayoutWidget_5">
       <property name="geometry">
@@ -76,9 +76,9 @@ alternate-background-color: rgb(108, 179, 255);</string>
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>140</y>
+        <y>70</y>
         <width>181</width>
-        <height>391</height>
+        <height>461</height>
        </rect>
       </property>
       <layout class="QHBoxLayout" name="fileLayout_3">
@@ -93,7 +93,7 @@ alternate-background-color: rgb(108, 179, 255);</string>
             <x>0</x>
             <y>0</y>
             <width>177</width>
-            <height>387</height>
+            <height>457</height>
            </rect>
           </property>
           <widget class="QTreeView" name="fileTreeView">
@@ -185,7 +185,7 @@ alternate-background-color: rgb(108, 179, 255);</string>
        <rect>
         <x>550</x>
         <y>70</y>
-        <width>71</width>
+        <width>72</width>
         <height>211</height>
        </rect>
       </property>
@@ -193,7 +193,7 @@ alternate-background-color: rgb(108, 179, 255);</string>
        <item>
         <widget class="QRadioButton" name="extFilterButton_2">
          <property name="text">
-          <string>Extention</string>
+          <string>Extension</string>
          </property>
         </widget>
        </item>
@@ -301,9 +301,9 @@ alternate-background-color: rgb(108, 179, 255);</string>
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>70</y>
+        <y>80</y>
         <width>181</width>
-        <height>461</height>
+        <height>451</height>
        </rect>
       </property>
       <layout class="QHBoxLayout" name="fileLayout">
@@ -318,7 +318,7 @@ alternate-background-color: rgb(108, 179, 255);</string>
             <x>0</x>
             <y>0</y>
             <width>177</width>
-            <height>457</height>
+            <height>447</height>
            </rect>
           </property>
           <widget class="QTreeView" name="fileTreeView_2">
@@ -442,7 +442,7 @@ alternate-background-color: rgb(108, 179, 255);</string>
        <item>
         <widget class="QRadioButton" name="extFilterButton">
          <property name="text">
-          <string>Extention</string>
+          <string>Extension</string>
          </property>
         </widget>
        </item>
