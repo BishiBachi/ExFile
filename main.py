@@ -23,7 +23,7 @@ class Ui_MainWindow(object):
         self.fileDropFilter = QtWidgets.QComboBox(self.verticalLayoutWidget_5)
         self.fileDropFilter.setStyleSheet("background-color: rgb(245, 255, 207);")
         self.fileDropFilter.setObjectName("fileDropFilter")
-        # Populate drive letters in fileDropFilter
+        # populate drive letters in fileDropFilter
         self.populateDriveList(self.fileDropFilter)
         self.fileDropFilter.currentIndexChanged.connect(self.updateTreeView)
         self.fileDropFilterLayout.addWidget(self.fileDropFilter)
