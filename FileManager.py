@@ -56,12 +56,35 @@ def start_categorization():
     else:
         messagebox.showerror("Error", "The selected path does not exist.")
 
-# Main GUI window
+# Function to search and filter files
+def search_and_filter_files():
+    path = path_entry.get()
+    if not os.path.exists(path):
+        messagebox.showerror("Error", "The selected path does not exist.")
+        return
+
+    search_term = search_entry.get().lower()
+    file_type = file_type_var.get()
+    filtered_files = []
+
+    for file_name in os.listdir(path):
+        if search_term in file_name.lower() and (file_type == "all" or file_name.endswith(file_type)):
+            filtered_files.append(file_name)
+
+    display_files(filtered_files)
+
+# Function to display files in the log listbox
+def display_files(files):
+    log_listbox.delete(0, tk.END)
+    for file in files:
+        log_listbox.insert(tk.END, file)
+
+# main gui window
 root = tk.Tk()
 root.title("File Management Program")
-root.geometry("600x450")
+root.geometry("600x550")
 
-# Folder Selection
+# folder Selection
 path_label = tk.Label(root, text="Select a folder to organize:")
 path_label.pack(pady=5)
 
@@ -73,6 +96,24 @@ path_entry.pack(side=tk.LEFT, padx=5)
 
 path_button = tk.Button(path_frame, text="Browse", command=select_folder)
 path_button.pack(side=tk.LEFT)
+
+# Search and Filter
+search_label = tk.Label(root, text="Search Files:")
+search_label.pack(pady=5)
+
+search_frame = tk.Frame(root)
+search_frame.pack(pady=5)
+
+search_entry = tk.Entry(search_frame, width=30)
+search_entry.pack(side=tk.LEFT, padx=5)
+
+file_type_var = tk.StringVar(value="all")
+file_type_options = ["all", ".csv", ".png", ".txt", ".pdf"]
+file_type_menu = tk.OptionMenu(search_frame, file_type_var, *file_type_options)
+file_type_menu.pack(side=tk.LEFT, padx=5)
+
+search_button = tk.Button(search_frame, text="Search", command=search_and_filter_files)
+search_button.pack(side=tk.LEFT, padx=5)
 
 # Folder Name Customization
 custom_label = tk.Label(root, text="Customize Folder Names:")
@@ -135,6 +176,5 @@ log_scrollbar.config(command=log_listbox.yview)
 # Start Button
 start_button = tk.Button(root, text="Start", command=start_categorization)
 start_button.pack(pady=20)
-
 
 root.mainloop()
