@@ -1,7 +1,9 @@
 import os
 import shutil
+import threading
 import tkinter as tk
 from tkinter import filedialog, messagebox, ttk
+import time
 
 # Function to categorize files
 def categorize_files(path, folder_names):
@@ -79,12 +81,20 @@ def display_files(files):
     for file in files:
         log_listbox.insert(tk.END, file)
 
-# main gui window
+# Function to start the scheduled file organization
+def start_scheduled_organization(interval):
+    def schedule_task():
+        while True:
+            start_categorization()
+            time.sleep(interval * 60)  # Convert interval to minutes
+    threading.Thread(target=schedule_task, daemon=True).start()
+
+# Main GUI window
 root = tk.Tk()
 root.title("File Management Program")
-root.geometry("600x550")
+root.geometry("600x600")
 
-# folder Selection
+# Folder Selection
 path_label = tk.Label(root, text="Select a folder to organize:")
 path_label.pack(pady=5)
 
@@ -176,5 +186,26 @@ log_scrollbar.config(command=log_listbox.yview)
 # Start Button
 start_button = tk.Button(root, text="Start", command=start_categorization)
 start_button.pack(pady=20)
+
+# Scheduled Organization Section
+schedule_label = tk.Label(root, text="Schedule File Organization (minutes):")
+schedule_label.pack(pady=10)
+
+schedule_frame = tk.Frame(root)
+schedule_frame.pack(pady=5)
+
+schedule_entry = tk.Entry(schedule_frame, width=10)
+schedule_entry.pack(side=tk.LEFT, padx=5)
+
+def schedule_organization():
+    try:
+        interval = int(schedule_entry.get())
+        start_scheduled_organization(interval)
+        messagebox.showinfo("Scheduled", f"File organization scheduled every {interval} minutes.")
+    except ValueError:
+        messagebox.showerror("Error", "Please enter a valid number for the interval.")
+
+schedule_button = tk.Button(schedule_frame, text="Schedule", command=schedule_organization)
+schedule_button.pack(side=tk.LEFT, padx=5)
 
 root.mainloop()
